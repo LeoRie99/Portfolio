@@ -1,0 +1,87 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(montserrat-v15-latin-regular.woff2) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url(montserrat-v15-latin-regular.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ 
+}
+
+body{
+  background-color: black;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Para colocar el contenedor detrás del contenido */
+}
+
+
+
+main{
+  z-index: 999;
+}
+
+
+.card-title{
+  color: gray;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.badge-primary{
+ color: black;
+}
+
+.card{
+  width: 85%;
+  margin: 0 auto;
+}
+
+
+
+#accordionTarjetas .btn{
+  width: 100%;
+  background-color: black;
+}
+
+#accordionTarjetas{
+  margin-bottom: 65px;
+}
+
+.img-fluid{
+  margin-top: 20px;
+}
+
+.bg-light, .py-3{
+  background-color: black !important;
+}
+
+
+.row{
+  align-items: center
+}
+
+.card-body a{
+  text-decoration: none;
+  background: black;
+    color: white;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.card-body a:hover{
+ background: gray;
+}
