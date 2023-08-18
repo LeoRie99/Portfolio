@@ -118,3 +118,9 @@ footer {
   z-index: 1; /* Coloca el contenedor del botón por encima de las partículas */
   margin-top: 20px;
 }
+
+@media screen and ( max-width: 572px ){
+.row{
+  width: auto;
+}
+}
