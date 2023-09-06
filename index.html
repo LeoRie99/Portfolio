@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portafolio</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+ <link rel="stylesheet" href="css/bootstrap.css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap.css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="particles-container">
+  <div id="particles-js"></div>
+  </div>
+
+  <div id="app">
+
+    <header v-if="selectedLanguage === 'en'">
+      <div class="container text-center"> 
+        <img v-bind:src="imageUrl" alt="Mi Foto" class="img-fluid rounded-circle" style="width: 200px;"> 
+        <h1>Alfredo Leonel Portillo</h1> 
+        <p>Web Designer and Developer Trainee</p> 
+        
+        <div class="social-media"> 
+          <a v-bind:href="whatsappUrl" target="_blank"><i class="fab fa-whatsapp fa-lg"  style="color: #ffffff;"></i></a>
+          <a v-bind:href="linkedinUrl" target="_blank"><i class="fab fa-linkedin fa-lg" style="color: white;"></i></a>
+          <a v-bind:href="instagramUrl" target="_blank"><i class="fab fa-instagram fa-lg" style="color: #ffffff;"></i></a>
+          <a v-bind:href="githubUrl" target="_blank"><i class="fab fa-github fa-lg" style="color: #ffffff;"></i></a>
+          <a v-bind:href="mailUrl" target="_blank"><i class="fas fa-envelope fa-lg" style="color: #ffffff;"></i></a>      
+        </div>
+        
+          <div class="a-container">
+            <a :href="cvUrl" download target="_blank"><i class="fa fa-download" style="color: #ffffff; margin-right: 5px;"></i>Descargar Cv</a>
+          </div>
+  
+  <div class="cambioIdioma">
+         <div class="options">
+      <span class="option" :class="{ active: selectedLanguage === 'es' }" v-on:click="selectedLanguage = 'es'">Español</span>
+    </div>
+    <label class="switch">
+      <input type="checkbox" v-model="isEnglish" @change="toggleLanguage">
+      <span class="slider round"></span>
+    </label> 
+    <span class="option" :class="{ active: selectedLanguage === 'en' }" v-on:click="selectedLanguage = 'en'">English</span>
+  </div>
+          <!-- <select class="form-select" v-model="selectedLanguage">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+          </select> -->
+      </div> 
+    </header>
+
+  <header v-else>
+    <div class="container text-center"> 
+      <img v-bind:src="imageUrl" alt="Mi Foto" class="img-fluid rounded-circle" style="width: 200px;"> 
+      <h1>Alfredo Leonel Portillo</h1> 
+      <p>Diseñador y Desarrollador Web Trainee</p> 
+      
+      <div class="social-media"> 
+        <a v-bind:href="whatsappUrl" target="_blank"><i class="fab fa-whatsapp fa-lg"  style="color: #ffffff;"></i></a>
+        <a v-bind:href="linkedinUrl" target="_blank"><i class="fab fa-linkedin fa-lg" style="color: white;"></i></a>
+        <a v-bind:href="instagramUrl" target="_blank"><i class="fab fa-instagram fa-lg" style="color: #ffffff;"></i></a>
+        <a v-bind:href="githubUrl" target="_blank"><i class="fab fa-github fa-lg" style="color: #ffffff;"></i></a>
+        <a v-bind:href="mailUrl" target="_blank"><i class="fas fa-envelope fa-lg" style="color: #ffffff;"></i></a>      
+      </div>
+      
+        <div class="a-container">
+          <a :href="cvUrl" download target="_blank"><i class="fa fa-download" style="color: #ffffff; margin-right: 5px;"></i>Descargar Cv</a>
+        </div>
+
+<div class="cambioIdioma">
+       <div class="options">
+    <span class="option" :class="{ active: selectedLanguage === 'es' }" v-on:click="selectedLanguage = 'es'">Español</span>
+  </div>
+  <label class="switch">
+    <input type="checkbox" v-model="isEnglish" @change="toggleLanguage">
+    <span class="slider round"></span>
+  </label> 
+  <span class="option" :class="{ active: selectedLanguage === 'en' }" v-on:click="selectedLanguage = 'en'">English</span>
+</div>
+        <!-- <select class="form-select" v-model="selectedLanguage">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+        </select> -->
+    </div> 
+  </header>
+
+  <main v-if="selectedLanguage === 'en'"> 
+    <!-- About Me section --> 
+    <section class="container mt-5" data-aos="fade-up"> 
+      <div class="card mb-4"> 
+        <div class="card-body"> 
+          <h2 class="card-title" id="aboutMe">About Me</h2> 
+          <p class="card-text">Trainee Web Designer and Developer with the ability to create web and mobile pages/applications that meet the business requirements of companies and startups. Competencies in teamwork, customer service, and innovation processes.</p> 
+        </div> 
+      </div> 
+    </section> 
+   
+    <!-- Projects section --> 
+    <div class="row"> 
+      <div class="col-md-6"> 
+        <section id="accordionTarjetas" class="accordion" data-aos="fade-up"> 
+          <h2 class="proyectos">Projects</h2> 
+          <div class="card card-small"> 
+            <div class="card-body"> 
+              <h3 class="card-title">Select a project</h3> 
+              <button class="btn btn-primary" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project1'">Project 1<i class="fas fa-chevron-down"></i></button><br><br> 
+              <div id="project1" class="accordion-item collapse"> 
+                <div class="card"> 
+                  <img v-bind:src="proyecto1ImgUrl" class="card-img-top" alt="..."> 
+                  <div class="card-body"> 
+                    <h3 class="card-title" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project1'">Web Development</h3> 
+                    <p class="card-text">Responsive website development using HTML, CSS, and Bootstrap.</p> 
+                    <a v-bind:href="proyecto1Link" target="_blank">View</a> 
+                  </div> 
+                </div> 
+              </div> 
+              <button class="btn btn-primary" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project2'">Project 2 <i class="fas fa-chevron-down"></i></button><br><br> 
+              <div id="project2" class="accordion-item collapse"> 
+                <div class="card"> 
+                  <img v-bind:src="proyecto2ImgUrl" class="card-img-top" alt="..."> 
+                  <div class="card-body"> 
+                    <h3 class="card-title" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project2'">Graphic Design</h3> 
+                    <p class="card-text">App design using Illustrator.</p> 
+                  </div> 
+                </div> 
+              </div> 
+              <button class="btn btn-primary" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project3'">Project 3 <i class="fas fa-chevron-down"></i></button><br><br> 
+              <div id="project3" class="accordion-item collapse"> 
+                <div class="card"> 
+                  <img v-bind:src="proyecto3ImgUrl" class="card-img-top" alt="..."> 
+                  <div class="card-body"> 
+                    <h3 class="card-title" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project3'">Web Development</h3> 
+                    <p class="card-text">E-commerce development using JavaScript.</p> 
+                    <a v-bind:href="proyecto3Link" target="_blank">View</a> 
+                  </div> 
+                </div> 
+              </div> 
+              <button class="btn btn-primary" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project4'">Project 4 <i class="fas fa-chevron-down"></i></button> 
+              <div id="project4" class="accordion-item collapse"> 
+                <div class="card"> 
+                  <img v-bind:src="proyecto4ImgUrl" class="card-img-top" alt="..."> 
+                  <div class="card-body"> 
+                    <h3 class="card-title" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project4'">Graphic Design</h3> 
+                    <p class="card-text">Logo design using Illustrator.</p> 
+                  </div> 
+                </div> 
+              </div> 
+            </div> 
+          </div> 
+        </section> 
+      </div> 
+   
+      <!-- Skills section --> 
+      <div class="col-md-6"> 
+        <section class="card mb-4" data-aos="fade-up"> 
+          <div class="card-body"> 
+            <h2 class="card-title" id="skills">Skills</h2> 
+            <ul class="list-group"> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary"><i class="fab fa-html5" style="color: #e26f22; margin: 5px;"></i>HTML</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary"><i class="fab fa-css3" style="color: #3869bc; margin: 5px;"></i>CSS</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary"><i class="fab fa-js" style="color: #e1d123; margin: 5px;"></i>JavaScript</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary"><i class="fab fa-bootstrap" style="color: #a441d2; margin: 5px;"></i>Bootstrap</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary">Photoshop</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary">Illustrator</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary">Excel</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary">Word</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary">PowerPoint</span> 
+              </li> 
+            </ul> 
+          </div> 
+        </section> 
+      </div> 
+    </div> 
+   
+    <!-- Education section --> 
+    <div class="row"> 
+      <div class="col-md-6"> 
+        <section class="card mb-4" data-aos="fade-up"> 
+          <div class="card-body"> 
+            <h5 class="card-title" id="studies">Education</h5> 
+            <ul class="list-group list-group-flush"> 
+              <li class="list-group-item"> 
+                <h6 class="mb-1"><span class="badge badge-primary">2005-2011</span> Primary Education</h6> 
+                <p class="mb-1">School No 16 DE 1 Wenceslao Posse</p> 
+              </li> 
+              <li class="list-group-item"> 
+                <h6 class="mb-1"><span class="badge badge-primary">2012-2016</span> Secondary Education</h6> 
+                <p class="mb-1">LICEO 1 JOSE FIGUEROA ALCORTA</p> 
+              </li> 
+              <li class="list-group-item"> 
+                <h6 class="mb-1"><span class="badge badge-primary">2022-Present</span> University Education</h6> 
+                <p class="mb-1">Da Vinci | First Multimedia Art School</p> 
+              </li> 
+            </ul> 
+          </div> 
+        </section> 
+      </div> 
+   
+      <!-- Languages section --> 
+      <div class="col-md-6 "> 
+        <section class="card mb-4" data-aos="fade-up"> 
+          <div class="card-body"> 
+            <h2 class="card-title" id="languages">Languages</h2> 
+            <ul class="list-group"> 
+              <li class="list-group-item d-flex justify-content-between align-items-center"> 
+                <span class="badge badge-primary badge-pill" id="spanish">Spanish</span> 
+                <div class="progress" style="width: 100px;"> 
+                  <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div> 
+                </div> 
+                <span class="badge badge-success badge-pill">Native</span> 
+              </li> 
+              <li class="list-group-item d-flex justify-content-between align-items-center"> 
+                <span class="badge badge-primary badge-pill" id="english">English</span> 
+                <div class="progress" style="width: 100px;"> 
+                  <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div> 
+                </div> 
+                <span class="badge badge-info badge-pill">Basic</span> 
+              </li> 
+            </ul> 
+          </div> 
+        </section> 
+      </div> 
+    </div> 
+  </main> 
+  
+ 
+<main v-else>
+
+  <!-- Información de la persona -->
+  <section class="container mt-5" data-aos="fade-up">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title" id="aboutMe">Acerca de Mi</h2>
+        <p class="card-text">Diseñador y Desarrollador web Trainee con capacidad de crear paginas/aplicaciones web y moviles que cumplan con los requerimientos del negocio de empresas y emprendimientos.
+        Competencias para el trabajo en equipo, atención al cliente y desarrollo de procesos de innovació.</p>
+        </div>
+      </div>
+    </section>
+
+
+    
+
+    <!-- Proyectos -->
+    <div class="row">
+      <div class="col-md-6">
+    <section id="accordionTarjetas" class="accordion" data-aos="fade-up">
+      <h2 class="proyectos">Proyectos</h2>
+<div class="card card-small">
+      <div class="card-body">
+      <h3 class="card-title">Selecciona un proyecto</h3>
+
+      <button class="btn btn-primary"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto1'">Proyecto 1<i class="fas fa-chevron-down"></i></button><br><br>
+      <div id="proyecto1" class="accordion-item collapse">
+        <div class="card">
+          <img v-bind:src="proyecto1ImgUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto1'">Desarrollo Web</h3>
+            <p class="card-text">Desarrollo de pagina responsive con html, css y bootstrap.</p>
+            <a v-bind:href="proyecto1Link" target="_blank">Ver</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto2'">Proyecto 2 <i class="fas fa-chevron-down"></i></button><br><br>  
+      <div id="proyecto2" class="accordion-item collapse">
+        <div class="card">
+          <img v-bind:src="proyecto2ImgUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto2'">Diseño Grafico</h3>
+            <p class="card-text">Diseño de app con ilustrator.</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto3'">Proyecto 3 <i class="fas fa-chevron-down"></i></button><br><br>  
+      <div id="proyecto3" class="accordion-item collapse">
+        <div class="card">
+          <img v-bind:src="proyecto3ImgUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto3'">Desarrollo Web</h3>
+            <p class="card-text">Desarrollo de E-commerce con JavaScript.</p>
+            <a v-bind:href="proyecto3Link" target="_blank">Ver</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto4'">Proyecto 4 <i class="fas fa-chevron-down"></i></button>
+      <div id="proyecto4" class="accordion-item collapse">
+        <div class="card">
+          <img v-bind:src="proyecto4ImgUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto4'">Diseño Grafico</h3>
+            <p class="card-text">Diseño de logo con ilustrator.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</div>
+  
+
+
+
+  <!-- Conocimientos -->
+  <div class="col-md-6">
+<section class="card mb-4" data-aos="fade-up">
+  <div class="card-body">
+    <h2 class="card-title" id="conocimientos skills">Conocimientos</h2>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span class="badge badge-primary"><i class="fab fa-html5" style="color: #e26f22; margin: 5px;"></i>HTML</span> 
+      </li>
+      <li class="list-group-item">
+        <span class="badge badge-primary"><i class="fab fa-css3" style="color: #3869bc; margin: 5px;"></i>CSS</span> 
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary"><i class="fab fa-js" style="color: #e1d123; margin: 5px;"></i>JavaScript</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary"><i class="fab fa-bootstrap" style="color: #a441d2; margin: 5px;"></i>Bootstrap</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary">Photoshop</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary">Ilustrator</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary">Excel</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary">Word</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary">PowerPoint</span>
+      </li>  
+    </ul>
+  </div>
+</section>
+</div>
+</div>
+
+
+
+   <!-- Estudios -->
+   <div class="row">
+    
+    <div class="col-md-6">
+<section class="card mb-4" data-aos="fade-up">
+  <div class="card-body">
+    <h5 class="card-title" id="studies">Estudios</h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <h6 class="mb-1"><span class="badge badge-primary">2005-2011</span> Educación Primaria</h6> 
+        <p class="mb-1">Escuela No 16 DE 1 Wenceslao Posse</p>
+      </li>
+      <li class="list-group-item">
+        <h6 class="mb-1"><span class="badge badge-primary">2012-2016</span> Educación Secundaria</h6>
+        <p class="mb-1">LICEO 1 JOSE FIGUEROA ALCORTA</p>
+      </li>
+      <li class="list-group-item">
+        <h6 class="mb-1"><span class="badge badge-primary">2022-Actualidad</span> Educación Universitaria</h6>
+        <p class="mb-1">Da Vinci | Primera Escuela de Arte Multimedial</p>
+      </li>
+    </ul>
+  </div>
+</section>
+</div>
+
+
+
+
+<!-- Idiomas -->
+<div class="col-md-6 ">
+  <section class="card mb-4" data-aos="fade-up">
+    <div class="card-body">
+      <h2 class="card-title" id="languages">Idiomas</h2>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="badge badge-primary badge-pill" id="spanish">Español</span> 
+          <div class="progress" style="width: 100px;">
+            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <span class="badge badge-success badge-pill">Nativo</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="badge badge-primary badge-pill" id="english">Inglés</span> 
+          <div class="progress" style="width: 100px;">
+            <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <span class="badge badge-info badge-pill">Básico</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+  </div>
+</div>
+
+</main>
+
+</div>
+
+  <footer class="bg-light py-3" data-aos="fade-up">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>Alfredo Leonel Portillo</p>
+          <p>leonel.riera999@gmail.com</p>
+          <p>Tel.: 11-2459-6312</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000, // Duración de la animación en milisegundos
+    });
+  </script>
+  <script src="js/bootstrap.js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="js/fondoPantalla.js"></script>
+</body>
+</html>
