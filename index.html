@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portafolio</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+ <link rel="stylesheet" href="css/bootstrap.css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap.css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="particles-container">
+  <div id="particles-js"></div>
+  </div>
+  <div id="app">
+  <header>
+    <div class="container text-center"> 
+      <img v-bind:src="imageUrl" alt="Mi Foto" class="img-fluid rounded-circle" style="width: 200px;"> 
+      <h1>Alfredo Leonel Portillo</h1> 
+      <p>Diseñador y Desarrollador Web Trainee</p> 
+      <div class="social-media"> 
+        <a v-bind:href="whatsappUrl" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+
+        <a v-bind:href="linkedinUrl" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+
+        <a v-bind:href="instagramUrl" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+
+        <a v-bind:href="githubUrl" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></a>
+
+        <a v-bind:href="mailUrl" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></a>      
+      </div>
+      
+        <div class="a-container">
+          <a :href="cvUrl" download target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" style="margin-right: 5px;"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>Descargar Cv</a>
+        </div>
+<div class="cambioIdioma">
+       <div class="options">
+    <span class="option" :class="{ active: selectedLanguage === 'es' }" v-on:click="selectedLanguage = 'es'">Español</span>
+  </div>
+  <label class="switch">
+    <input type="checkbox" v-model="isEnglish" @change="toggleLanguage">
+    <span class="slider round"></span>
+  </label> 
+  <span class="option" :class="{ active: selectedLanguage === 'en' }" v-on:click="selectedLanguage = 'en'">English</span>
+</div>
+        <!-- <select class="form-select" v-model="selectedLanguage">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+        </select> -->
+    </div> 
+  </header>
+
+  <main v-if="selectedLanguage === 'en'"> 
+    <!-- About Me section --> 
+    <section class="container mt-5" data-aos="fade-up"> 
+      <div class="card mb-4"> 
+        <div class="card-body"> 
+          <h2 class="card-title" id="aboutMe">About Me</h2> 
+          <p class="card-text">Trainee Web Designer and Developer with the ability to create web and mobile pages/applications that meet the business requirements of companies and startups. Competencies in teamwork, customer service, and innovation processes.</p> 
+        </div> 
+      </div> 
+    </section> 
+   
+    <!-- Projects section --> 
+    <div class="row"> 
+      <div class="col-md-6"> 
+        <section id="accordionTarjetas" class="accordion" data-aos="fade-up"> 
+          <h2 class="proyectos">Projects</h2> 
+          <div class="card card-small"> 
+            <div class="card-body"> 
+              <h3 class="card-title">Select a project</h3> 
+              <button class="btn btn-primary" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project1'">Project 1<i class="fas fa-chevron-down"></i></button><br><br> 
+              <div id="project1" class="accordion-item collapse"> 
+                <div class="card"> 
+                  <img v-bind:src="proyecto1ImgUrl" class="card-img-top" alt="..."> 
+                  <div class="card-body"> 
+                    <h3 class="card-title" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project1'">Web Development</h3> 
+                    <p class="card-text">Responsive website development using HTML, CSS, and Bootstrap.</p> 
+                    <a v-bind:href="proyecto1Link" target="_blank">View</a> 
+                  </div> 
+                </div> 
+              </div> 
+              <button class="btn btn-primary" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project2'">Project 2 <i class="fas fa-chevron-down"></i></button><br><br> 
+              <div id="project2" class="accordion-item collapse"> 
+                <div class="card"> 
+                  <img v-bind:src="proyecto2ImgUrl" class="card-img-top" alt="..."> 
+                  <div class="card-body"> 
+                    <h3 class="card-title" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project2'">Graphic Design</h3> 
+                    <p class="card-text">App design using Illustrator.</p> 
+                  </div> 
+                </div> 
+              </div> 
+              <button class="btn btn-primary" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project3'">Project 3 <i class="fas fa-chevron-down"></i></button><br><br> 
+              <div id="project3" class="accordion-item collapse"> 
+                <div class="card"> 
+                  <img v-bind:src="proyecto3ImgUrl" class="card-img-top" alt="..."> 
+                  <div class="card-body"> 
+                    <h3 class="card-title" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project3'">Web Development</h3> 
+                    <p class="card-text">E-commerce development using JavaScript.</p> 
+                    <a v-bind:href="proyecto3Link" target="_blank">View</a> 
+                  </div> 
+                </div> 
+              </div> 
+              <button class="btn btn-primary" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project4'">Project 4 <i class="fas fa-chevron-down"></i></button> 
+              <div id="project4" class="accordion-item collapse"> 
+                <div class="card"> 
+                  <img v-bind:src="proyecto4ImgUrl" class="card-img-top" alt="..."> 
+                  <div class="card-body"> 
+                    <h3 class="card-title" v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#project4'">Graphic Design</h3> 
+                    <p class="card-text">Logo design using Illustrator.</p> 
+                  </div> 
+                </div> 
+              </div> 
+            </div> 
+          </div> 
+        </section> 
+      </div> 
+   
+      <!-- Skills section --> 
+      <div class="col-md-6"> 
+        <section class="card mb-4" data-aos="fade-up"> 
+          <div class="card-body"> 
+            <h2 class="card-title" id="skills">Skills</h2> 
+            <ul class="list-group"> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary"><svg class="html" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" style="fill: #d57c15; margin-right: 5px;"><path d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z"/></svg>HTML</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" style="fill: #1b32a7; margin-right: 5px;"><path d="M480 32l-64 368-223.3 80L0 400l19.6-94.8h82l-8 40.6L210 390.2l134.1-44.4 18.8-97.1H29.5l16-82h333.7l10.5-52.7H56.3l16.3-82H480z"/></svg>CSS</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" style="fill:#dfca43;margin-right: 5px;"><path d="M0 32v448h448V32H0zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z"/></svg>JavaScript</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" style="fill:#9931bf; margin-right: 5px;"><path d="M333.5,201.4c0-22.1-15.6-34.3-43-34.3h-50.4v71.2h42.5C315.4,238.2,333.5,225,333.5,201.4z M517,188.6 c-9.5-30.9-10.9-68.8-9.8-98.1c1.1-30.5-22.7-58.5-54.7-58.5H123.7c-32.1,0-55.8,28.1-54.7,58.5c1,29.3-0.3,67.2-9.8,98.1 c-9.6,31-25.7,50.6-52.2,53.1v28.5c26.4,2.5,42.6,22.1,52.2,53.1c9.5,30.9,10.9,68.8,9.8,98.1c-1.1,30.5,22.7,58.5,54.7,58.5h328.7 c32.1,0,55.8-28.1,54.7-58.5c-1-29.3,0.3-67.2,9.8-98.1c9.6-31,25.7-50.6,52.1-53.1v-28.5C542.7,239.2,526.5,219.6,517,188.6z M300.2,375.1h-97.9V136.8h97.4c43.3,0,71.7,23.4,71.7,59.4c0,25.3-19.1,47.9-43.5,51.8v1.3c33.2,3.6,55.5,26.6,55.5,58.3 C383.4,349.7,352.1,375.1,300.2,375.1z M290.2,266.4h-50.1v78.4h52.3c34.2,0,52.3-13.7,52.3-39.5 C344.7,279.6,326.1,266.4,290.2,266.4z"/></svg>Bootstrap</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary">Photoshop</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary">Illustrator</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary">Excel</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary">Word</span> 
+              </li> 
+              <li class="list-group-item"> 
+                <span class="badge badge-primary">PowerPoint</span> 
+              </li> 
+            </ul> 
+          </div> 
+        </section> 
+      </div> 
+    </div> 
+   
+    <!-- Education section --> 
+    <div class="row"> 
+      <div class="col-md-6"> 
+        <section class="card mb-4" data-aos="fade-up"> 
+          <div class="card-body"> 
+            <h5 class="card-title" id="studies">Education</h5> 
+            <ul class="list-group list-group-flush"> 
+              <li class="list-group-item"> 
+                <h6 class="mb-1"><span class="badge badge-primary">2005-2011</span> Primary Education</h6> 
+                <p class="mb-1">School No 16 DE 1 Wenceslao Posse</p> 
+              </li> 
+              <li class="list-group-item"> 
+                <h6 class="mb-1"><span class="badge badge-primary">2012-2016</span> Secondary Education</h6> 
+                <p class="mb-1">LICEO 1 JOSE FIGUEROA ALCORTA</p> 
+              </li> 
+              <li class="list-group-item"> 
+                <h6 class="mb-1"><span class="badge badge-primary">2022-Present</span> University Education</h6> 
+                <p class="mb-1">Da Vinci | First Multimedia Art School</p> 
+              </li> 
+            </ul> 
+          </div> 
+        </section> 
+      </div> 
+   
+      <!-- Languages section --> 
+      <div class="col-md-6 "> 
+        <section class="card mb-4" data-aos="fade-up"> 
+          <div class="card-body"> 
+            <h2 class="card-title" id="languages">Languages</h2> 
+            <ul class="list-group"> 
+              <li class="list-group-item d-flex justify-content-between align-items-center"> 
+                <span class="badge badge-primary badge-pill" id="spanish">Spanish</span> 
+                <div class="progress" style="width: 100px;"> 
+                  <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div> 
+                </div> 
+                <span class="badge badge-success badge-pill">Native</span> 
+              </li> 
+              <li class="list-group-item d-flex justify-content-between align-items-center"> 
+                <span class="badge badge-primary badge-pill" id="english">English</span> 
+                <div class="progress" style="width: 100px;"> 
+                  <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div> 
+                </div> 
+                <span class="badge badge-info badge-pill">Basic</span> 
+              </li> 
+            </ul> 
+          </div> 
+        </section> 
+      </div> 
+    </div> 
+  </main> 
+  
+ 
+<main v-else>
+
+  <!-- Información de la persona -->
+  <section class="container mt-5" data-aos="fade-up">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title" id="aboutMe">Acerca de Mi</h2>
+        <p class="card-text">Diseñador y Desarrollador web Trainee con capacidad de crear paginas/aplicaciones web y moviles que cumplan con los requerimientos del negocio de empresas y emprendimientos.
+        Competencias para el trabajo en equipo, atención al cliente y desarrollo de procesos de innovació.</p>
+        </div>
+      </div>
+    </section>
+
+
+    
+
+    <!-- Proyectos -->
+    <div class="row">
+      <div class="col-md-6">
+    <section id="accordionTarjetas" class="accordion" data-aos="fade-up">
+      <h2 class="proyectos">Proyectos</h2>
+<div class="card card-small">
+      <div class="card-body">
+      <h3 class="card-title">Selecciona un proyecto</h3>
+
+      <button class="btn btn-primary"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto1'">Proyecto 1<i class="fas fa-chevron-down"></i></button><br><br>
+      <div id="proyecto1" class="accordion-item collapse">
+        <div class="card">
+          <img v-bind:src="proyecto1ImgUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto1'">Desarrollo Web</h3>
+            <p class="card-text">Desarrollo de pagina responsive con html, css y bootstrap.</p>
+            <a v-bind:href="proyecto1Link" target="_blank">Ver</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto2'">Proyecto 2 <i class="fas fa-chevron-down"></i></button><br><br>  
+      <div id="proyecto2" class="accordion-item collapse">
+        <div class="card">
+          <img v-bind:src="proyecto2ImgUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto2'">Diseño Grafico</h3>
+            <p class="card-text">Diseño de app con ilustrator.</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto3'">Proyecto 3 <i class="fas fa-chevron-down"></i></button><br><br>  
+      <div id="proyecto3" class="accordion-item collapse">
+        <div class="card">
+          <img v-bind:src="proyecto3ImgUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto3'">Desarrollo Web</h3>
+            <p class="card-text">Desarrollo de E-commerce con JavaScript.</p>
+            <a v-bind:href="proyecto3Link" target="_blank">Ver</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto4'">Proyecto 4 <i class="fas fa-chevron-down"></i></button>
+      <div id="proyecto4" class="accordion-item collapse">
+        <div class="card">
+          <img v-bind:src="proyecto4ImgUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title"  v-bind:data-bs-toggle="'collapse'" v-bind:data-bs-target="'#proyecto4'">Diseño Grafico</h3>
+            <p class="card-text">Diseño de logo con ilustrator.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</div>
+  
+
+
+
+  <!-- Conocimientos -->
+  <div class="col-md-6">
+<section class="card mb-4" data-aos="fade-up">
+  <div class="card-body">
+    <h2 class="card-title" id="conocimientos skills">Conocimientos</h2>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span class="badge badge-primary"><svg class="html" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" style="fill: #d57c15; margin-right: 5px;"><path d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z"/></svg>HTML</span> 
+      </li>
+      <li class="list-group-item">
+        <span class="badge badge-primary"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" style="fill: #1b32a7; margin-right: 5px;"><path d="M480 32l-64 368-223.3 80L0 400l19.6-94.8h82l-8 40.6L210 390.2l134.1-44.4 18.8-97.1H29.5l16-82h333.7l10.5-52.7H56.3l16.3-82H480z"/></svg>CSS</span> 
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" style="fill:#dfca43;margin-right: 5px;"><path d="M0 32v448h448V32H0zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z"/></svg>JavaScript</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" style="fill:#9931bf; margin-right: 5px;"><path d="M333.5,201.4c0-22.1-15.6-34.3-43-34.3h-50.4v71.2h42.5C315.4,238.2,333.5,225,333.5,201.4z M517,188.6 c-9.5-30.9-10.9-68.8-9.8-98.1c1.1-30.5-22.7-58.5-54.7-58.5H123.7c-32.1,0-55.8,28.1-54.7,58.5c1,29.3-0.3,67.2-9.8,98.1 c-9.6,31-25.7,50.6-52.2,53.1v28.5c26.4,2.5,42.6,22.1,52.2,53.1c9.5,30.9,10.9,68.8,9.8,98.1c-1.1,30.5,22.7,58.5,54.7,58.5h328.7 c32.1,0,55.8-28.1,54.7-58.5c-1-29.3,0.3-67.2,9.8-98.1c9.6-31,25.7-50.6,52.1-53.1v-28.5C542.7,239.2,526.5,219.6,517,188.6z M300.2,375.1h-97.9V136.8h97.4c43.3,0,71.7,23.4,71.7,59.4c0,25.3-19.1,47.9-43.5,51.8v1.3c33.2,3.6,55.5,26.6,55.5,58.3 C383.4,349.7,352.1,375.1,300.2,375.1z M290.2,266.4h-50.1v78.4h52.3c34.2,0,52.3-13.7,52.3-39.5 C344.7,279.6,326.1,266.4,290.2,266.4z"/></svg>Bootstrap</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary">Photoshop</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary">Ilustrator</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary">Excel</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary">Word</span>
+      </li>  
+      <li class="list-group-item">
+        <span class="badge badge-primary">PowerPoint</span>
+      </li>  
+    </ul>
+  </div>
+</section>
+</div>
+</div>
+
+
+
+   <!-- Estudios -->
+   <div class="row">
+    
+    <div class="col-md-6">
+<section class="card mb-4" data-aos="fade-up">
+  <div class="card-body">
+    <h5 class="card-title" id="studies">Estudios</h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <h6 class="mb-1"><span class="badge badge-primary">2005-2011</span> Educación Primaria</h6> 
+        <p class="mb-1">Escuela No 16 DE 1 Wenceslao Posse</p>
+      </li>
+      <li class="list-group-item">
+        <h6 class="mb-1"><span class="badge badge-primary">2012-2016</span> Educación Secundaria</h6>
+        <p class="mb-1">LICEO 1 JOSE FIGUEROA ALCORTA</p>
+      </li>
+      <li class="list-group-item">
+        <h6 class="mb-1"><span class="badge badge-primary">2022-Actualidad</span> Educación Universitaria</h6>
+        <p class="mb-1">Da Vinci | Primera Escuela de Arte Multimedial</p>
+      </li>
+    </ul>
+  </div>
+</section>
+</div>
+
+
+
+
+<!-- Idiomas -->
+<div class="col-md-6 ">
+  <section class="card mb-4" data-aos="fade-up">
+    <div class="card-body">
+      <h2 class="card-title" id="languages">Idiomas</h2>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="badge badge-primary badge-pill" id="spanish">Español</span> 
+          <div class="progress" style="width: 100px;">
+            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <span class="badge badge-success badge-pill">Nativo</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="badge badge-primary badge-pill" id="english">Inglés</span> 
+          <div class="progress" style="width: 100px;">
+            <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <span class="badge badge-info badge-pill">Básico</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+  </div>
+</div>
+
+</main>
+
+</div>
+
+  <footer class="bg-light py-3" data-aos="fade-up">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>Alfredo Leonel Portillo</p>
+          <p>leonel.riera999@gmail.com</p>
+          <p>Tel.: 11-2459-6312</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000, // Duración de la animación en milisegundos
+    });
+  </script>
+  <script src="js/bootstrap.js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="js/fondoPantalla.js"></script>
+</body>
+</html>
